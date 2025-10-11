@@ -28,6 +28,17 @@
 
         fill: var(--color-on-surface);
       }
+      
+      /* Custom button hover style - grey instead of blue */
+      .btn-primary:hover {
+        background-color: #6b7280 !important;
+        border-color: #6b7280 !important;
+      }
+      
+      .home-btn:hover {
+        background-color: #6b7280 !important;
+        border-color: #6b7280 !important;
+      }
     </style>
     <link
       rel="stylesheet"
@@ -242,7 +253,7 @@
                 }
 
                 // Smooth scroll with offset for fixed nav
-                const allLinks = document.querySelectorAll('a[href^='#']')
+                const allLinks = document.querySelectorAll('a[href^="#"]')
                 allLinks.forEach((link) => {
                   link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href')
@@ -448,7 +459,7 @@
                           const originalHTML = submitBtn.innerHTML
 
                           submitBtn.innerHTML =
-                            '<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 6L9 17l-5-5'/></svg>'
+                            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6L9 17l-5-5"/></svg>'
                           submitBtn.style.background = 'var(--color-on-surface)'
 
                           // Reset form
@@ -470,7 +481,7 @@
                     // Smooth scroll for internal links
                     const footerLinks = document
                       .getElementById('footer-anxious-traveler')
-                      .querySelectorAll('a[href^='#']')
+                      .querySelectorAll('a[href^="#"]')
 
                     footerLinks.forEach(function (link) {
                       link.addEventListener('click', function (e) {
