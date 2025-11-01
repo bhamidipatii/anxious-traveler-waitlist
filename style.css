@@ -1748,6 +1748,13 @@
   .hero-visual {
     height: 350px;
   }
+@media (max-width: 479px) {
+  .navigation__logo-text,
+  .logo-text {
+    font-size: 1rem;
+  }
+}
+
   .hero-cta  .btn {
     width: 100%;
   }
