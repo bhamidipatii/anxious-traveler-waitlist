@@ -516,6 +516,131 @@
         font-size: 0.75rem;
       }
 
+      /* Beta Modal Styles */
+      .beta-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        animation: fadeIn 200ms ease-out;
+      }
+
+      .beta-modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .beta-modal-content {
+        background: #ffffff;
+        padding: var(--spacing-3xl);
+        border-radius: 12px;
+        max-width: 500px;
+        width: 90%;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: slideUp 300ms ease-out;
+        text-align: center;
+      }
+
+      .beta-modal-close {
+        position: absolute;
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #6b6b6b;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 120ms, color 120ms;
+      }
+
+      .beta-modal-close:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: #0b0b0b;
+      }
+
+      .beta-modal-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto var(--spacing-lg);
+        color: #ef4444;
+      }
+
+      .beta-modal-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .beta-modal-title {
+        color: #0b0b0b;
+        font-size: 1.75rem;
+        font-family: var(--font-family-heading);
+        font-weight: 700;
+        margin: 0 0 var(--spacing-md) 0;
+      }
+
+      .beta-modal-text {
+        color: #6b6b6b;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin: 0 0 var(--spacing-2xl) 0;
+      }
+
+      .beta-modal-btn {
+        width: 100%;
+      }
+
+      .beta-link {
+        position: relative;
+      }
+
+      .beta-link::before {
+        content: "COMING SOON";
+        position: absolute;
+        top: -20px;
+        right: -10px;
+        background: #ef4444;
+        color: white;
+        font-size: 0.5rem;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        pointer-events: none;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       /* Animations */
       @keyframes fadeInUp {
         from {
@@ -679,6 +804,30 @@
           font-size: 1rem;
         }
 
+        .beta-link::before {
+          font-size: 0.45rem;
+          padding: 2px 4px;
+          top: -18px;
+          right: -8px;
+        }
+
+        .beta-modal-content {
+          padding: var(--spacing-2xl);
+        }
+
+        .beta-modal-title {
+          font-size: 1.5rem;
+        }
+
+        .beta-modal-text {
+          font-size: 1rem;
+        }
+
+        .beta-modal-icon {
+          width: 56px;
+          height: 56px;
+        }
+
         .hero-section {
           padding: clamp(5rem, 8vw, 6rem) var(--spacing-md) var(--spacing-2xl);
         }
@@ -775,12 +924,32 @@
           <a href="account.html" class="navigation__link">
             <span>Account</span>
           </a>
-          <a href="#articles" class="navigation__link">
-            <span>Articles</span>
+          <a href="#" class="navigation__link beta-link">
+            <span>Beta</span>
           </a>
         </div>
       </div>
     </nav>
+
+    <!-- Beta Access Modal -->
+    <div id="betaModal" class="beta-modal">
+      <div class="beta-modal-content">
+        <button class="beta-modal-close" aria-label="Close modal">&times;</button>
+        <div class="beta-modal-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4M12 16h.01"></path>
+          </svg>
+        </div>
+        <h2 class="beta-modal-title">Access Restricted</h2>
+        <p class="beta-modal-text">
+          The Beta program is not yet available. Join our waitlist to be notified when we launch!
+        </p>
+        <a href="https://tally.so/r/wa7MXE" target="_blank" rel="noreferrer noopener" class="btn btn-lg btn-primary beta-modal-btn">
+          Join the Waitlist
+        </a>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -1020,9 +1189,12 @@
         // Close mobile menu when clicking on a link
         const navLinks = navMenu.querySelectorAll('.navigation__link');
         navLinks.forEach((link) => {
-          link.addEventListener('click', function () {
-            navMenu.classList.remove('navigation__menu--open');
-            navToggle.setAttribute('aria-expanded', 'false');
+          link.addEventListener('click', function (e) {
+            // Don't close menu for beta link - modal will handle it
+            if (!link.classList.contains('beta-link')) {
+              navMenu.classList.remove('navigation__menu--open');
+              navToggle.setAttribute('aria-expanded', 'false');
+            }
           });
         });
 
@@ -1042,6 +1214,50 @@
           }
         });
       }
+
+      // Beta Modal functionality
+      const betaModal = document.getElementById('betaModal');
+      const betaLinks = document.querySelectorAll('.beta-link');
+      const betaModalClose = document.querySelector('.beta-modal-close');
+
+      betaLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          betaModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          
+          // Close mobile menu if open
+          if (navMenu) {
+            navMenu.classList.remove('navigation__menu--open');
+            if (navToggle) {
+              navToggle.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+      });
+
+      if (betaModalClose) {
+        betaModalClose.addEventListener('click', function() {
+          betaModal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+
+      // Close modal when clicking outside
+      betaModal.addEventListener('click', function(e) {
+        if (e.target === betaModal) {
+          betaModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && betaModal.classList.contains('active')) {
+          betaModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
 
       // Newsletter form submission
       const footerForm = document.querySelector('.footer-newsletter-form');
