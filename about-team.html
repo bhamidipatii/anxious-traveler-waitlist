@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>About the Team - Anxious Traveler</title>
+    <meta property="og:title" content="About the Team - Anxious Traveler" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    
+    <style>
+      :root {
+        --color-surface: #ffffff;
+        --color-on-surface: #1f2937;
+        --color-border: #e5e7eb;
+        --color-primary: #3b82f6;
+        --color-primary-hover: #6b7280;
+      }
+
+      html {
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--color-on-surface);
+        background: var(--color-surface);
+        min-height: 100vh;
+      }
+
+      /* Navigation Styles */
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--color-border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-on-surface);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-link {
+        color: var(--color-on-surface);
+        transition: opacity 0.2s;
+        cursor: pointer;
+      }
+
+      .nav-link:hover {
+        opacity: 0.7;
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 73px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid var(--color-border);
+        padding: 1rem;
+        z-index: 999;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .mobile-menu-link {
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        transition: background 0.2s;
+      }
+
+      .mobile-menu-link:hover {
+        background: #f3f4f6;
+      }
+
+      /* About Section Styles */
+      .about-section {
+        padding: 120px 2rem 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .about-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--color-on-surface);
+      }
+
+      .about-subtitle {
+        font-size: 1.25rem;
+        color: #6b7280;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        margin-bottom: 5rem;
+      }
+
+      .about-story {
+        background: #f9fafb;
+        padding: 3rem;
+        border-radius: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .about-story h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--color-on-surface);
+      }
+
+      .about-story p {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #4b5563;
+        margin-bottom: 1rem;
+      }
+
+      /* Team Grid */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .team-member {
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .team-member:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .team-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        font-weight: 700;
+      }
+
+      .team-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--color-on-surface);
+      }
+
+      .team-role {
+        font-size: 1rem;
+        color: #6b7280;
+        margin-bottom: 1rem;
+      }
+
+      .team-bio {
+        font-size: 0.95rem;
+        color: #4b5563;
+        line-height: 1.6;
+      }
+
+      /* Values Section */
+      .values-section {
+        margin-top: 5rem;
+        padding-top: 3rem;
+        border-top: 2px solid var(--color-border);
+      }
+
+      .values-section h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .value-card {
+        padding: 2rem;
+        background: #f9fafb;
+        border-radius: 1rem;
+        text-align: center;
+      }
+
+      .value-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .value-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--color-on-surface);
+      }
+
+      .value-description {
+        color: #6b7280;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      .footer {
+        background: #f9fafb;
+        border-top: 1px solid var(--color-border);
+        padding: 3rem 2rem 2rem;
+        margin-top: 5rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .footer-text {
+        color: #6b7280;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        color: #6b7280;
+        transition: color 0.2s;
+      }
+
+      .footer-link:hover {
+        color: var(--color-on-surface);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .about-title {
+          font-size: 2rem;
+        }
+
+        .about-subtitle {
+          font-size: 1rem;
+        }
+
+        .about-story {
+          padding: 1.5rem;
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&amp;display=swap"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="main-navigation" class="main-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="index.html">
+            <span class="logo-text">Anxious Traveler</span>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">
+            <div class="nav-link"><span>Home</span></div>
+          </a>
+          <a href="about-team.html">
+            <div class="nav-link"><span>About the team</span></div>
+          </a>
+          <a href="index.html#account">
+            <div class="nav-link"><span>Account</span></div>
+          </a>
+          <a href="index.html#articles">
+            <div class="nav-link"><span>Articles</span></div>
+          </a>
+        </div>
+        <button
+          id="mobile-menu-toggle"
+          aria-label="Toggle mobile menu"
+          class="mobile-menu-toggle"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M4 5h16M4 12h16M4 19h16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-content">
+        <a href="index.html">
+          <div class="mobile-menu-link"><span>Home</span></div>
+        </a>
+        <a href="about-team.html">
+          <div class="mobile-menu-link"><span>About the team</span></div>
+        </a>
+        <a href="index.html#account">
+          <div class="mobile-menu-link"><span>Account</span></div>
+        </a>
+        <a href="index.html#articles">
+          <div class="mobile-menu-link"><span>Articles</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-header">
+        <h1 class="about-title">About The Team</h1>
+        <p class="about-subtitle">
+          We're a passionate group of travelers and technologists on a mission to make travel accessible and anxiety-free for everyone.
+        </p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-story">
+          <h2>Our Story</h2>
+          <p>
+            The Anxious Traveler was born from personal experience. We understand the overwhelming feeling of wanting to explore the world but being held back by anxiety, uncertainty, and the fear of the unknown.
+          </p>
+          <p>
+            Travel should be exciting, not stressful. Whether it's choosing a destination, planning an itinerary, or simply taking that first step, we're here to guide you through every part of your journey.
+          </p>
+          <p>
+            Our platform combines expert travel knowledge with practical tools and supportive community features to help you overcome travel anxiety and discover the joy of exploration.
+          </p>
+        </div>
+
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Meet The Team</h2>
+        
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="team-avatar">A</div>
+            <h3 class="team-name">Aditya Bhamidipati</h3>
+            <p class="team-role">Co-Founder</p>
+            <p class="team-bio">
+              Sr Program Manager at Micron with a Master's in Engineering Management from Cornell University. Aditya combines technical expertise with a passion for making travel accessible to everyone.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">T</div>
+            <h3 class="team-name">Teja Machabathuni</h3>
+            <p class="team-role">Co-Founder</p>
+            <p class="team-bio">
+              Product Manager at SciPlay with deep expertise in building user-centric digital experiences. Teja is dedicated to creating tools that reduce travel anxiety and enhance the journey.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values Section -->
+      <div class="values-section">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3 class="value-title">Empathy First</h3>
+            <p class="value-description">
+              We understand your concerns because we've been there. Every feature is built with your comfort in mind.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">🌍</div>
+            <h3 class="value-title">Inclusive Travel</h3>
+            <p class="value-description">
+              Travel is for everyone. We celebrate diverse experiences and make exploration accessible to all.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">💡</div>
+            <h3 class="value-title">Simplicity</h3>
+            <p class="value-description">
+              Complex planning shouldn't add to your anxiety. We make travel planning simple and intuitive.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">🌟</div>
+            <h3 class="value-title">Growth</h3>
+            <p class="value-description">
+              Every journey is an opportunity to grow. We support you as you step outside your comfort zone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="footer-text">© 2025 Anxious Traveler. Taking the anxiety out of travel, one journey at a time.</p>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about-team.html" class="footer-link">About</a>
+          <a href="index.html#articles" class="footer-link">Articles</a>
+          <a href="#privacy" class="footer-link">Privacy</a>
+          <a href="#terms" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+          }
+        });
+
+        // Close menu when clicking a link
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
