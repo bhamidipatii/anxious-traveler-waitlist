@@ -11,6 +11,9 @@ function Home() {
     const element = document.getElementById('destination-form')
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
+  const handleRedirect = () => {
+    window.open("https://tally.so/r/wa7MXE", "_blank")
+  }
 
   const location = useLocation()
   useEffect(() => {
@@ -34,7 +37,7 @@ function Home() {
             <p className="paragraph">
               You're at the right place. This is for you. Stay tuned, so that we get the anxiety out of you and you don't have to use this platform anymore :)
             </p>
-            <button className="cta-button" onClick={scrollToDestination}>Join the waitlist</button>
+            <button className="cta-button" onClick={handleRedirect}>Join the waitlist</button>
           </div>
 
           <div className="right-column">

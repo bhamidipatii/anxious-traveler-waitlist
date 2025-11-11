@@ -1,3 +1,11 @@
+:root {
+  --z-base: 1;           /* Base level - default elements */
+  --z-icon: 2;           /* Icons above inputs */
+  --z-elevated: 10;      /* Slightly elevated (focused states) */
+  --z-dropdown: 100;     /* Dropdowns (main overlay) */
+  --z-dropdown-icon: 101; /* Icons that need to be above dropdown */
+}
+
 .destination-section {
   width: 100%;
   background-color: #e8e8e8;
@@ -64,6 +72,7 @@
   display: flex;
   align-items: center;
   gap: 0;
+  z-index: auto;
 }
 
 .icon-container {
@@ -73,7 +82,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 2;
+  z-index: --z-icon;
   width: 20px;
   height: 20px;
 }
@@ -110,31 +119,27 @@
 .autocomplete-wrapper .icon-container {
   position: absolute;
   left: 1rem;
-  z-index: 1010;
+  z-index: var(--z-dropdown-icon);
   pointer-events: none;
 }
 
 /* Ensure autocomplete dropdown appears above other elements */
 .autocomplete-wrapper {
   position: relative;
-  z-index: 1;
+  z-index: var(--z-base);
 }
 
 * When focused/has dropdown open, increase z-index */
 .form-group:has(.autocomplete-wrapper .airport-dropdown) {
-  z-index: 1000;  /* Lift entire form-group */
+  z-index: var(--z-dropdown);  /* Lift entire form-group */
 }
 
 .autocomplete-wrapper:focus-within {
-  z-index: 1000;  /* Increase when focused */
+  z-index: var(--z-dropdown);  /* Increase when focused */
 }
 
 .autocomplete-wrapper .airport-dropdown {
-  z-index: 10001;  /* Very high z-index */
-}
-
-.autocomplete-wrapper .airport-dropdown {
-  z-index: 1001;
+  z-index: var(--z-dropdown);
 }
 
 
