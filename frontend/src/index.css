@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #000000;
+  background-color: #ffffff;
+
+  /* Icon colors for light theme */
+  --icon-color: #666;
+  --icon-color-hover: #333;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    color: #ffffff;
+    background-color: #1a1a1a;
+    
+    /* Icon colors for dark theme */
+    --icon-color: #999;
+    --icon-color-hover: #ccc;
+  }
+}
+
+/* Manual dark theme class (if you want to toggle it) */
+.dark-theme {
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #1a1a1a;
+  
+  --icon-color: #999;
+  --icon-color-hover: #ccc;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.dark-theme body {
+  background-color: #1a1a1a;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
