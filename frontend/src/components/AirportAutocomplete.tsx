@@ -16,6 +16,8 @@ function AirportAutocomplete({ value, onChange, placeholder = "Search airports..
   const [selectedIndex, setSelectedIndex] = useState(-1)
   const wrapperRef = useRef<HTMLDivElement>(null)
 
+  console.log(value)
+
   // Search airports when user types
   useEffect(() => {
     // Don't search if less than 1 character
