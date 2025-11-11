@@ -48,7 +48,7 @@ function AirportAutocomplete({ value, onChange, placeholder = "Search airports..
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
         setIsOpen(false)
       }
     }
@@ -123,7 +123,7 @@ function AirportAutocomplete({ value, onChange, placeholder = "Search airports..
         onFocus={handleInputFocus}
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
-        className="airport-input"
+        className="airport-input form-input text-input"
         autoComplete="off"
       />
 
@@ -133,7 +133,9 @@ function AirportAutocomplete({ value, onChange, placeholder = "Search airports..
             <div
               key={airport.id}
               className={`airport-item ${index === selectedIndex ? 'selected' : ''}`}
-              onClick={() => handleSelect(airport)}
+              onKeyDown={(e)=> {e.preventDefault(); handleSelect(airport);}}
+              onMouseDown={(e)=> {e.preventDefault(); handleSelect(airport);}}
+              onPointerDown={(e)=> {e.preventDefault(); handleSelect(airport);}}
               onMouseEnter={() => setSelectedIndex(index)}
             >
               <div className="airport-icon">✈️</div>

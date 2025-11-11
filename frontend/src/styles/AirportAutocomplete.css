@@ -3,7 +3,7 @@
 .airport-autocomplete {
     position: relative;
     width: 100%;
-    z-index: 1;
+    z-index: var(--z-base);
   }
   
   .airport-input {
@@ -39,7 +39,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-height: 400px;
     overflow-y: auto;
-    z-index: 1002;
+    z-index: var(--z-dropdown);
   }
   
   .airport-item {
@@ -52,7 +52,7 @@
   }
 
   .airport-autocomplete:has(.airport-dropdown) {
-    z-index: 100;
+    z-index: var(--z-dropdown);
   }
   
   .airport-item:last-child {
