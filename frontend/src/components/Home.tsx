@@ -1,6 +1,9 @@
 import { useLocation } from 'react-router-dom'
 import '../App.css'
-import DestinationForm from './DestinationForm.tsx'
+import cameraMan from '../assets/images/man-with-camera.jpeg'
+import scenary from '../assets/images/scenery.jpeg'
+import airplaneWindow from '../assets/images/airplane-window.jpeg'
+import DestinationForm from './DestinationForm'
 import { useEffect } from 'react'
 
 function Home() {
@@ -8,7 +11,7 @@ function Home() {
     const element = document.getElementById('destination-form')
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
-  
+
   const location = useLocation()
   useEffect(() => {
     if (location.hash === '#destination-form') {
@@ -16,7 +19,7 @@ function Home() {
         scrollToDestination()
       }, 100)
     }
-  }, [location])
+  }, [location.hash])
 
   return (
     <>
@@ -38,21 +41,21 @@ function Home() {
             <div className="image-collage">
               <div className="image-wrapper image-top-right">
                 <img 
-                  src="./src/assets/images/man-with-camera.jpeg" 
+                  src={cameraMan} 
                   alt="Man with camera" 
                   className="collage-image"
                 />
               </div>
               <div className="image-wrapper image-middle-left">
                 <img 
-                  src="./src/assets/images/scenery.jpeg" 
+                  src={scenary}
                   alt="Travel essentials" 
                   className="collage-image"
                 />
               </div>
               <div className="image-wrapper image-bottom-right">
                 <img 
-                  src="./src/assets/images/airplane-window.jpeg" 
+                  src={airplaneWindow}
                   alt="Airplane window view" 
                   className="collage-image"
                 />
