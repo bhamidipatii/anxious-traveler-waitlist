@@ -29,11 +29,7 @@ function About() {
 			role: "Co-Founder",
 			bio: "Sr Program Manager at Micron with a Master's in Engineering Management from Cornell University. Aditya combines technical expertise with a passion for making travel accessible to everyone.",
 		},
-		teja: {
-			name: "Teja Machabathuni",
-			role: "Co-Founder",
-			bio: "Product Manager at SciPlay with deep expertise in building user-centric digital experiences. Teja is dedicated to creating tools that reduce travel anxiety and enhance the journey.",
-		},
+		
 		nikhita: {
 			name: "Nikhita Paluru",
 			role: "Co-Founder",
