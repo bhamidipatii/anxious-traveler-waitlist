@@ -26,13 +26,13 @@ function About() {
 	const team = {
 		aditya: {
 			name: "Aditya Bhamidipati",
-			role: "Co-Founder",
+			role: "Product and Growth",
 			bio: "Sr Program Manager at Micron with a Master's in Engineering Management from Cornell University. Aditya combines technical expertise with a passion for making travel accessible to everyone.",
 		},
 		
 		nikhita: {
 			name: "Nikhita Paluru",
-			role: "Co-Founder",
+			role: "Technology and Platform",
 			bio: "Software Engineer with a Master's in Computer Science from University of Buffalo - SUNY. Nikhita is passionate about building tools that help people travel with confidence.",
 		},
 	};
