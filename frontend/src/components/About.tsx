@@ -30,10 +30,10 @@ function About() {
 			bio: "Sr Program Manager at Micron with a Master's in Engineering Management from Cornell University. Aditya combines technical expertise with a passion for making travel accessible to everyone.",
 		},
 		
-		tasvi: {
-			name: "Tasvi Adappa",
+		nikhita: {
+			name: "Nikhita Paluru",
 			role: "Technology and Platform",
-			bio: "Software Engineer with a Master’s in Computer Science from Boise State University. Former Manufacturing Risk Analyst Intern in Front End Central Quality at Micron, passionate about building technology that empowers people to travel with confidence.",
+			bio: "Software Engineer with a Master's in Computer Science from University of Buffalo - SUNY. Nikhita is passionate about building tools that help people travel with confidence.",
 		},
 	};
   return (
@@ -97,4 +97,3 @@ function About() {
 }
 
 export default About
-
